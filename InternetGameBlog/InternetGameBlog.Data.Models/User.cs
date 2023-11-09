@@ -4,7 +4,8 @@
 	{
         public User()
         {
-            this.Games = new HashSet<Game>();
+            this.FavouriteGames = new HashSet<Game>();
+            this.Comments = new HashSet<Comment>();
         }
 
         public string FirstName { get; set; } = null!;
@@ -13,6 +14,8 @@
 
         public string ProfilePicUrl { get; set; } = null!;
 
-        ICollection<Game> Games { get; set; }
-	}
+        ICollection<Game> FavouriteGames { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+
+    }
 }
