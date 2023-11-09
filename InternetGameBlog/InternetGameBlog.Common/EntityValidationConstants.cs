@@ -4,21 +4,18 @@
 	{
 		public static class Game
 		{
-			public const int NameMinLength = 1;
-			public const int NameMaxLength = 1;
+			public const int NameMinLength = 3;
+			public const int NameMaxLength = 50;
 
-			public const int CreatorCompanyMinLength = 1;
-			public const int CreatorCompanyMaxLength = 1;
+			public const int CreatorCompanyMinLength = 3;
+			public const int CreatorCompanyMaxLength = 50;
 
-			public const int PlatformMinLength = 1;
-			public const int PlatformMaxLength = 1;
+			public const int PlatformMinLength = 3;
+			public const int PlatformMaxLength = 50;
 		}
 
 		public static class User
 		{
-			public const int PasswordMinLength = 6;
-			public const int PasswordMaxLength = 100;
-
 			public const int FirstNameMinLength = 2;
 			public const int FirstNameMaxLength = 50;
 
