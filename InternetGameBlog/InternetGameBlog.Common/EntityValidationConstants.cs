@@ -9,9 +9,12 @@
 
 			public const int CreatorCompanyMinLength = 3;
 			public const int CreatorCompanyMaxLength = 50;
+		}
 
-			public const int PlatformMinLength = 3;
-			public const int PlatformMaxLength = 50;
+		public static class Platform
+		{
+			public const int NameMinLength = 3;
+			public const int NameMaxLength = 50;
 		}
 
 		public static class User
