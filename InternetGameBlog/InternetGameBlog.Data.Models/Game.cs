@@ -10,7 +10,7 @@
 	{
 		public Game()
 		{
-			this.Platform = new HashSet<Platform>();
+			this.Platform = new HashSet<GamePlatform>();
 			this.Images = new HashSet<Image>();
 			this.Comments = new HashSet<Comment>();
 		}
@@ -32,7 +32,7 @@
 		[MaxLength(CreatorCompanyMaxLength)]
 		public string CreatorCompany { get; set; } = null!;
 
-		public ICollection<Platform> Platform { get; set; }
+		public ICollection<GamePlatform> Platform { get; set; }
 		public ICollection<Image> Images { get; set; }
         public ICollection<Comment> Comments { get; set; }
     }
