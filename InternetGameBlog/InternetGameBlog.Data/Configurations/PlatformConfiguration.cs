@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace InternetGameBlog.Data.Condigurations
+namespace InternetGameBlog.Data.Configurations
 {
     public class PlatformConfiguration : IEntityTypeConfiguration<Platform>
     {

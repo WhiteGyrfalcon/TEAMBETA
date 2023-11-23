@@ -6,17 +6,17 @@
 
 	using static Common.EntityValidationConstants.User;
 
-	public class User : IdentityUser<Guid>
+	public class User : IdentityUser
 	{
 		public User()
 		{
-			Id = Guid.NewGuid();
+			
 			this.FavouriteGames = new HashSet<Game>();
 			this.Comments = new HashSet<Comment>();
 		}
 
 		[Key]
-		public Guid Id { get; set; }
+		public override string Id { get; set; } = Guid.NewGuid().ToString();
 
 		[Required]
 		[MaxLength(FirstNameMaxLength)]

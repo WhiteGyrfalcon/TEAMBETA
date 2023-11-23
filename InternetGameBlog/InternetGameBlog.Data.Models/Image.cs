@@ -5,11 +5,16 @@
 
 	public class Image
 	{
-        [Key]
-        public Guid Id { get; set; }
+		public Image()
+		{
+			this.Id = Guid.NewGuid().ToString();
+		}
 
-        [ForeignKey(nameof(Game))]
-        public Guid GameId { get; set; }
+        [Key]
+        public string Id { get; set; }
+
+		[ForeignKey(nameof(Game))]
+		public string GameId { get; set; } = null!;
         public Game Game { get; set; } = null!;
 
         public string ImageUrl { get; set; } = null!;

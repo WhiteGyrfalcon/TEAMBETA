@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetGameBlog.Data.Condigurations
+namespace InternetGameBlog.Data.Configurations
 {
     public class GameConfiguration : IEntityTypeConfiguration<Game>
     {
         public void Configure(EntityTypeBuilder<Game> builder)
         {
-            throw new NotImplementedException();
+            builder.HasData(GetGames());
         }
         public List<Game> GetGames()
         {
@@ -22,7 +22,7 @@ namespace InternetGameBlog.Data.Condigurations
 
             var game = new Game()
             {
-                Id = new Guid("523c6221-c7ec-4156-973c-ef365392be01"), 
+                Id = "523c6221-c7ec-4156-973c-ef365392be01", 
                 CreatorCompany = "GameCreating", 
                 Name = "Minecraft", 
                 Genre = Genre.Adventure,

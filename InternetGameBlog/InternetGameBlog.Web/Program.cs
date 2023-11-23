@@ -23,7 +23,7 @@ namespace InternetGameBlog.Web
 				{
 					options.SignIn.RequireConfirmedAccount = true;
 				})
-				.AddRoles<IdentityRole<Guid>>()
+				.AddRoles<IdentityRole>()
 				.AddEntityFrameworkStores<GameBlogDbContext>();
 
 			builder.Services.AddControllersWithViews();

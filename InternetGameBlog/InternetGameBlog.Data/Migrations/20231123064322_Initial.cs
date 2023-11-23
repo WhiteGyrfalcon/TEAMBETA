@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InternetGameBlog.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace InternetGameBlog.Data.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -27,7 +27,7 @@ namespace InternetGameBlog.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ProfilePicUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -52,12 +52,25 @@ namespace InternetGameBlog.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Platforms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Platforms", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -78,7 +91,7 @@ namespace InternetGameBlog.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -100,7 +113,7 @@ namespace InternetGameBlog.Data.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -117,8 +130,8 @@ namespace InternetGameBlog.Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,7 +154,7 @@ namespace InternetGameBlog.Data.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -161,13 +174,13 @@ namespace InternetGameBlog.Data.Migrations
                 name: "Games",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Genre = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LikeCnt = table.Column<int>(type: "int", nullable: false),
                     CreatorCompany = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -183,9 +196,9 @@ namespace InternetGameBlog.Data.Migrations
                 name: "Comments",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GameId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    GameId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -207,11 +220,35 @@ namespace InternetGameBlog.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GamePlatforms",
+                columns: table => new
+                {
+                    GameId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PlatformId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GamePlatforms", x => new { x.GameId, x.PlatformId });
+                    table.ForeignKey(
+                        name: "FK_GamePlatforms_Games_GameId",
+                        column: x => x.GameId,
+                        principalTable: "Games",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GamePlatforms_Platforms_PlatformId",
+                        column: x => x.PlatformId,
+                        principalTable: "Platforms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Images",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GameId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    GameId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -225,24 +262,45 @@ namespace InternetGameBlog.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Platforms",
-                columns: table => new
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    GameId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Platforms", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Platforms_Games_GameId",
-                        column: x => x.GameId,
-                        principalTable: "Games",
-                        principalColumn: "Id");
+                    { "111c3195-4e75-4ea9-9f4c-7c69f3fb34c6", 0, "44d80cdf-ce76-4daa-b17d-5b42f88ecf82", "gosho@abv.bg", false, "Georgi", "Petrov", false, null, "GOSHO@ABV.BG", "GOSHO", "AQAAAAEAACcQAAAAEEp4DP1jcIvt7eDH+z4SboPmYyqez7fEnn2krSMvp6daPgEWlAksOfG7/A1BDyiogA==", null, false, "https://res.cloudinary.com/ddriqreo7/image/upload/v1700118672/schoolProjectImages/2150771129_hrcjdi.jpg", "772dccf8-1f86-4976-8761-a4f2cc3e3754", false, "gosho" },
+                    { "16592260-d4ab-4d15-a34c-8aa894c70025", 0, "827c16e8-627e-447c-a139-5f573fbe4230", "peter@abv.bg", false, "Peter", "Dimitrov", false, null, "PETER@ABV.BG", "PETER", "AQAAAAEAACcQAAAAEM/X6IwGmx5QskQIZZeVXje/L+rYGcLVdGfg+bHylT1QLy+rmE7TGdF0EYiTFJsu6g==", null, false, "https://res.cloudinary.com/ddriqreo7/image/upload/v1700116926/schoolProjectImages/5585_lafw0h.jpg", "142b6e73-0d6f-41dc-b02e-ffcb01729b8b", false, "peter" },
+                    { "605e03f7-dfb6-4fdb-9f36-481520c6b714", 0, "f1fcc17d-9e10-40cd-8d2e-0a955fdc7d20", "ivan123@abv.bg", false, "Ivan", "Ivanov", false, null, "IVAN123@ABV.BG", "VANKATA", "AQAAAAEAACcQAAAAEFn3bZbqtmDfKJhACVq7JRm2Yb+5YQV5F47QEg+8IpZman6LO1NZVjpv/lBAkso04A==", null, false, "https://res.cloudinary.com/ddriqreo7/image/upload/v1700115971/schoolProjectImages/4127_zv0rup.jpg", "884e3986-3c36-48c4-a04a-ab84067e1d5d", false, "vankata" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Games",
+                columns: new[] { "Id", "CreatedOn", "CreatorCompany", "Genre", "LikeCnt", "Name", "UserId" },
+                values: new object[] { "523c6221-c7ec-4156-973c-ef365392be01", new DateTime(2023, 11, 23, 8, 43, 22, 218, DateTimeKind.Local).AddTicks(3433), "GameCreating", 1, 20, "Minecraft", null });
+
+            migrationBuilder.InsertData(
+                table: "Platforms",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "PC" },
+                    { 2, "Playstation" },
+                    { 3, "Xbox" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "GamePlatforms",
+                columns: new[] { "GameId", "PlatformId" },
+                values: new object[] { "523c6221-c7ec-4156-973c-ef365392be01", 1 });
+
+            migrationBuilder.InsertData(
+                table: "GamePlatforms",
+                columns: new[] { "GameId", "PlatformId" },
+                values: new object[] { "523c6221-c7ec-4156-973c-ef365392be01", 2 });
+
+            migrationBuilder.InsertData(
+                table: "GamePlatforms",
+                columns: new[] { "GameId", "PlatformId" },
+                values: new object[] { "523c6221-c7ec-4156-973c-ef365392be01", 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -294,6 +352,11 @@ namespace InternetGameBlog.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GamePlatforms_PlatformId",
+                table: "GamePlatforms",
+                column: "PlatformId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Games_UserId",
                 table: "Games",
                 column: "UserId");
@@ -301,11 +364,6 @@ namespace InternetGameBlog.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Images_GameId",
                 table: "Images",
-                column: "GameId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Platforms_GameId",
-                table: "Platforms",
                 column: "GameId");
         }
 
@@ -330,13 +388,16 @@ namespace InternetGameBlog.Data.Migrations
                 name: "Comments");
 
             migrationBuilder.DropTable(
+                name: "GamePlatforms");
+
+            migrationBuilder.DropTable(
                 name: "Images");
 
             migrationBuilder.DropTable(
-                name: "Platforms");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "Platforms");
 
             migrationBuilder.DropTable(
                 name: "Games");

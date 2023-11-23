@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace InternetGameBlog.Data.Condigurations
+namespace InternetGameBlog.Data.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
@@ -25,7 +25,7 @@ namespace InternetGameBlog.Data.Condigurations
 
             var user = new User()
             {
-                Id = new Guid("605e03f7-dfb6-4fdb-9f36-481520c6b714"),
+                Id = "605e03f7-dfb6-4fdb-9f36-481520c6b714",
                 FirstName = "Ivan",
                 LastName = "Ivanov",
                 Email = "ivan123@abv.bg",
@@ -40,7 +40,7 @@ namespace InternetGameBlog.Data.Condigurations
 
             var user2 = new User()
             {
-                Id = new Guid("16592260-d4ab-4d15-a34c-8aa894c70025"),
+                Id = "16592260-d4ab-4d15-a34c-8aa894c70025",
                 FirstName = "Peter",
                 LastName = "Dimitrov",
                 Email = "peter@abv.bg",
@@ -54,7 +54,7 @@ namespace InternetGameBlog.Data.Condigurations
 
             var user3 = new User()
             {
-                Id = new Guid("111c3195-4e75-4ea9-9f4c-7c69f3fb34c6"),
+                Id ="111c3195-4e75-4ea9-9f4c-7c69f3fb34c6",
                 FirstName = "Georgi",
                 LastName = "Petrov",
                 Email = "gosho@abv.bg",

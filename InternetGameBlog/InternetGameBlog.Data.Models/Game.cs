@@ -10,13 +10,14 @@
 	{
 		public Game()
 		{
+			this.Id = Guid.NewGuid().ToString();
 			this.Platform = new HashSet<GamePlatform>();
 			this.Images = new HashSet<Image>();
 			this.Comments = new HashSet<Comment>();
 		}
 
 		[Key]
-		public Guid Id { get; set; }
+		public string Id { get; set; }
 
 		[Required]
 		[MaxLength(NameMaxLength)]

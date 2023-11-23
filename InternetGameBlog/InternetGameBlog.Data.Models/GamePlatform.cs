@@ -15,7 +15,7 @@ namespace InternetGameBlog.Data.Models
         public Game Game { get; set; } = null!;
 
         [ForeignKey(nameof(Platform))]
-        public string PlatformId { get; set; } = null!;
+        public int PlatformId { get; set; }
 
         public Platform Platform { get; set; } = null!;
     }
