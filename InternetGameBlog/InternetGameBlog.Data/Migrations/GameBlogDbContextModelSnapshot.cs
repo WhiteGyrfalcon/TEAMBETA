@@ -24,9 +24,8 @@ namespace InternetGameBlog.Data.Migrations
 
             modelBuilder.Entity("InternetGameBlog.Data.Models.Comment", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -35,11 +34,13 @@ namespace InternetGameBlog.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("GameId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -52,9 +53,8 @@ namespace InternetGameBlog.Data.Migrations
 
             modelBuilder.Entity("InternetGameBlog.Data.Models.Game", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -75,24 +75,67 @@ namespace InternetGameBlog.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Games");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "523c6221-c7ec-4156-973c-ef365392be01",
+                            CreatedOn = new DateTime(2023, 11, 23, 8, 43, 22, 218, DateTimeKind.Local).AddTicks(3433),
+                            CreatorCompany = "GameCreating",
+                            Genre = 1,
+                            LikeCnt = 20,
+                            Name = "Minecraft"
+                        });
+                });
+
+            modelBuilder.Entity("InternetGameBlog.Data.Models.GamePlatform", b =>
+                {
+                    b.Property<string>("GameId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PlatformId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GameId", "PlatformId");
+
+                    b.HasIndex("PlatformId");
+
+                    b.ToTable("GamePlatforms");
+
+                    b.HasData(
+                        new
+                        {
+                            GameId = "523c6221-c7ec-4156-973c-ef365392be01",
+                            PlatformId = 1
+                        },
+                        new
+                        {
+                            GameId = "523c6221-c7ec-4156-973c-ef365392be01",
+                            PlatformId = 2
+                        },
+                        new
+                        {
+                            GameId = "523c6221-c7ec-4156-973c-ef365392be01",
+                            PlatformId = 3
+                        });
                 });
 
             modelBuilder.Entity("InternetGameBlog.Data.Models.Image", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("GameId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -113,9 +156,6 @@ namespace InternetGameBlog.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<Guid?>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -123,16 +163,30 @@ namespace InternetGameBlog.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameId");
-
                     b.ToTable("Platforms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "PC"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Playstation"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Xbox"
+                        });
                 });
 
             modelBuilder.Entity("InternetGameBlog.Data.Models.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -206,13 +260,71 @@ namespace InternetGameBlog.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "605e03f7-dfb6-4fdb-9f36-481520c6b714",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f1fcc17d-9e10-40cd-8d2e-0a955fdc7d20",
+                            Email = "ivan123@abv.bg",
+                            EmailConfirmed = false,
+                            FirstName = "Ivan",
+                            LastName = "Ivanov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "IVAN123@ABV.BG",
+                            NormalizedUserName = "VANKATA",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFn3bZbqtmDfKJhACVq7JRm2Yb+5YQV5F47QEg+8IpZman6LO1NZVjpv/lBAkso04A==",
+                            PhoneNumberConfirmed = false,
+                            ProfilePicUrl = "https://res.cloudinary.com/ddriqreo7/image/upload/v1700115971/schoolProjectImages/4127_zv0rup.jpg",
+                            SecurityStamp = "884e3986-3c36-48c4-a04a-ab84067e1d5d",
+                            TwoFactorEnabled = false,
+                            UserName = "vankata"
+                        },
+                        new
+                        {
+                            Id = "16592260-d4ab-4d15-a34c-8aa894c70025",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "827c16e8-627e-447c-a139-5f573fbe4230",
+                            Email = "peter@abv.bg",
+                            EmailConfirmed = false,
+                            FirstName = "Peter",
+                            LastName = "Dimitrov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PETER@ABV.BG",
+                            NormalizedUserName = "PETER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM/X6IwGmx5QskQIZZeVXje/L+rYGcLVdGfg+bHylT1QLy+rmE7TGdF0EYiTFJsu6g==",
+                            PhoneNumberConfirmed = false,
+                            ProfilePicUrl = "https://res.cloudinary.com/ddriqreo7/image/upload/v1700116926/schoolProjectImages/5585_lafw0h.jpg",
+                            SecurityStamp = "142b6e73-0d6f-41dc-b02e-ffcb01729b8b",
+                            TwoFactorEnabled = false,
+                            UserName = "peter"
+                        },
+                        new
+                        {
+                            Id = "111c3195-4e75-4ea9-9f4c-7c69f3fb34c6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "44d80cdf-ce76-4daa-b17d-5b42f88ecf82",
+                            Email = "gosho@abv.bg",
+                            EmailConfirmed = false,
+                            FirstName = "Georgi",
+                            LastName = "Petrov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "GOSHO@ABV.BG",
+                            NormalizedUserName = "GOSHO",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEp4DP1jcIvt7eDH+z4SboPmYyqez7fEnn2krSMvp6daPgEWlAksOfG7/A1BDyiogA==",
+                            PhoneNumberConfirmed = false,
+                            ProfilePicUrl = "https://res.cloudinary.com/ddriqreo7/image/upload/v1700118672/schoolProjectImages/2150771129_hrcjdi.jpg",
+                            SecurityStamp = "772dccf8-1f86-4976-8761-a4f2cc3e3754",
+                            TwoFactorEnabled = false,
+                            UserName = "gosho"
+                        });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -236,7 +348,7 @@ namespace InternetGameBlog.Data.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -250,8 +362,9 @@ namespace InternetGameBlog.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -260,7 +373,7 @@ namespace InternetGameBlog.Data.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,8 +387,9 @@ namespace InternetGameBlog.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -284,7 +398,7 @@ namespace InternetGameBlog.Data.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
@@ -297,8 +411,9 @@ namespace InternetGameBlog.Data.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -307,13 +422,13 @@ namespace InternetGameBlog.Data.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -322,10 +437,10 @@ namespace InternetGameBlog.Data.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
@@ -369,6 +484,25 @@ namespace InternetGameBlog.Data.Migrations
                         .HasForeignKey("UserId");
                 });
 
+            modelBuilder.Entity("InternetGameBlog.Data.Models.GamePlatform", b =>
+                {
+                    b.HasOne("InternetGameBlog.Data.Models.Game", "Game")
+                        .WithMany("Platform")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InternetGameBlog.Data.Models.Platform", "Platform")
+                        .WithMany("Games")
+                        .HasForeignKey("PlatformId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Platform");
+                });
+
             modelBuilder.Entity("InternetGameBlog.Data.Models.Image", b =>
                 {
                     b.HasOne("InternetGameBlog.Data.Models.Game", "Game")
@@ -380,23 +514,16 @@ namespace InternetGameBlog.Data.Migrations
                     b.Navigation("Game");
                 });
 
-            modelBuilder.Entity("InternetGameBlog.Data.Models.Platform", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("InternetGameBlog.Data.Models.Game", null)
-                        .WithMany("Platform")
-                        .HasForeignKey("GameId");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("InternetGameBlog.Data.Models.User", null)
                         .WithMany()
@@ -405,7 +532,7 @@ namespace InternetGameBlog.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("InternetGameBlog.Data.Models.User", null)
                         .WithMany()
@@ -414,9 +541,9 @@ namespace InternetGameBlog.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -429,7 +556,7 @@ namespace InternetGameBlog.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("InternetGameBlog.Data.Models.User", null)
                         .WithMany()
@@ -445,6 +572,11 @@ namespace InternetGameBlog.Data.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Platform");
+                });
+
+            modelBuilder.Entity("InternetGameBlog.Data.Models.Platform", b =>
+                {
+                    b.Navigation("Games");
                 });
 
             modelBuilder.Entity("InternetGameBlog.Data.Models.User", b =>

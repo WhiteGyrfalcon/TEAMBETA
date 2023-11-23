@@ -13,16 +13,19 @@ namespace InternetGameBlog.Web
 			var builder = WebApplication.CreateBuilder(args);
 
 			var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 			builder.Services.AddDbContext<GameBlogDbContext>(options =>
 				options.UseSqlServer(connectionString));
+
 			builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 			builder.Services.AddDefaultIdentity<User>(options =>
 				{
 					options.SignIn.RequireConfirmedAccount = true;
 				})
-				.AddRoles<IdentityRole<Guid>>()
+				.AddRoles<IdentityRole>()
 				.AddEntityFrameworkStores<GameBlogDbContext>();
+
 			builder.Services.AddControllersWithViews();
 
 			var app = builder.Build();

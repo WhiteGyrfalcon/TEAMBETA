@@ -5,15 +5,19 @@
 
 	public class Comment
 	{
+		public Comment()
+		{
+			this.Id = Guid.NewGuid().ToString();
+		}
 		[Key]
-		public Guid Id { get; set; }
+		public string Id { get; set; }
 
 		[ForeignKey(nameof(Game))]
-		public Guid GameId { get; set; }
+		public string GameId { get; set; }
 		public Game Game { get; set; } = null!;
 
 		[ForeignKey(nameof(User))]
-		public Guid UserId { get; set; }
+		public string UserId { get; set; } = null!;
 		public User User { get; set; } = null!;
 
 		public DateTime CreatedOn { get; set; }
