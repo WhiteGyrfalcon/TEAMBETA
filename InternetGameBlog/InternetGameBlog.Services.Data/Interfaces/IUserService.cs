@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace InternetGameBlog.Services.Data.Interfaces
 {
-    internal interface IUserService
+    public interface IUserService
     {
+        Task<bool> IsUserExistsByEmailAsync(string email);
+
     }
 }
