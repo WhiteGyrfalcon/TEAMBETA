@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.23.0" />
+    <PackageReference Include="dotenv.net" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
@@ -23,6 +25,7 @@
     <ProjectReference Include="..\InternetGameBlog.Common\InternetGameBlog.Common.csproj" />
     <ProjectReference Include="..\InternetGameBlog.Data.Models\InternetGameBlog.Data.Models.csproj" />
     <ProjectReference Include="..\InternetGameBlog.Data\InternetGameBlog.Data.csproj" />
+    <ProjectReference Include="..\InternetGameBlog.Services.Data\InternetGameBlog.Services.Data.csproj" />
     <ProjectReference Include="..\InternetGameBlog.Web.ViewModels\InternetGameBlog.Web.ViewModels.csproj" />
   </ItemGroup>
 
