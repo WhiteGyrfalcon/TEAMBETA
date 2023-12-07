@@ -24,6 +24,12 @@
 
 			public const int LastNameMinLength = 3;
 			public const int LastNameMaxLength = 50;
+
+			public const int EmailMinLength = 5;
+			public const int EmailMaxLength = 50;
+
+			public const int PasswordMinLength = 4;
+			public const int PasswordMaxLength = 50;
 		}
 	}
 }

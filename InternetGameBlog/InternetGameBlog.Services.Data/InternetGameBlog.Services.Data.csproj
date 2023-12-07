@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InternetGameBlog.Common\InternetGameBlog.Common.csproj" />
+    <ProjectReference Include="..\InternetGameBlog.Data.Models\InternetGameBlog.Data.Models.csproj" />
+    <ProjectReference Include="..\InternetGameBlog.Data\InternetGameBlog.Data.csproj" />
+    <ProjectReference Include="..\InternetGameBlog.Services.Contracts\InternetGameBlog.Services.Contracts.csproj" />
+    <ProjectReference Include="..\InternetGameBlog.Web.ViewModels\InternetGameBlog.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
