@@ -14,5 +14,11 @@ namespace InternetGameBlog.Web.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using InternetGameBlog.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace InternetGameBlog.Web.Controllers
 {
@@ -10,9 +11,10 @@ namespace InternetGameBlog.Web.Controllers
         {
             this.dbContext = _context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var users = await dbContext.Users.ToListAsync();
+            return View(users);
         }
     }
 }
