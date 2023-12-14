@@ -21,9 +21,22 @@ namespace InternetGameBlog.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> FilterGamesByPlatform(int platformId)
         {
-            return View();
+            var games = await dbContext.GamePlatforms.Where(gp => gp.PlatformId == platformId).Include(gp => gp.Game).Select(gp => gp.Game).ToListAsync();
+            return View(games);
+        }
+        [HttpGet]
+        public async Task<IActionResult> FilterGamesByGenres(string genre)
+        {
+            var games = await dbContext.Games.Where(g => $"{g.Genre}" == genre).ToListAsync();
+            return View(games);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            return await Task.Run(() => View());
         }
         [HttpPost]
         public async Task<IActionResult> Add(AddGameViewModel viewModel)

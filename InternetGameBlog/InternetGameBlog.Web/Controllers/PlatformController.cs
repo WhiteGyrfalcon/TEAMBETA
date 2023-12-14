@@ -11,10 +11,16 @@ namespace InternetGameBlog.Web.Controllers
         {
             this.dbContext = _context;
         }
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var platforms = await dbContext.Platforms.ToListAsync();
             return View(platforms);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            return await Task.Run(() => View("Add"));
         }
     }
 }
