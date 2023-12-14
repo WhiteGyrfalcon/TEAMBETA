@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace InternetGameBlog.Web.ViewModels.Account
         [Required]
         [StringLength(FirstNameMinLength, MinimumLength = FirstNameMinLength)]
         public string FirstName { get; set; } = null!;
+
+        [Required]
+        [StringLength(FirstNameMinLength, MinimumLength = FirstNameMinLength)]
+        public string LastName { get; set; } = null!;
 
         [Required]
         [EmailAddress]
@@ -34,6 +39,8 @@ namespace InternetGameBlog.Web.ViewModels.Account
 
         [Required]
         public string PhoneNumber { get; set; } = null!;
+
+        public IFormFile? ProfilePicture { get; set; }
 
     }
 }

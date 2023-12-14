@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\InternetGameBlog.Common\InternetGameBlog.Common.csproj" />
     <ProjectReference Include="..\InternetGameBlog.Data.Models\InternetGameBlog.Data.Models.csproj" />
     <ProjectReference Include="..\InternetGameBlog.Data\InternetGameBlog.Data.csproj" />

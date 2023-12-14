@@ -9,5 +9,8 @@ namespace InternetGameBlog.Services.Contracts
     public interface IUserService
     {
         Task<bool> ExistsByEmailAsync(string email);
+        Task<bool> ExistsByPhoneAsync(string phoneNumber);
+
+        Task Create(string userId);
     }
 }
