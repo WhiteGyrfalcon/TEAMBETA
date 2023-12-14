@@ -7,6 +7,7 @@ namespace InternetGameBlog.Web
 	using InternetGameBlog.Data.Models;
     using System.Security.Principal;
     using CloudinaryDotNet;
+    using InternetGameBlog.Web.Extensions;
 
     public class Program
 	{
@@ -30,7 +31,10 @@ namespace InternetGameBlog.Web
 
 			builder.Services.AddControllersWithViews();
 
-			ConfigureCloudinaryService(builder.Services, builder.Configuration);
+			builder.Services.ConfigureServices();
+
+
+            ConfigureCloudinaryService(builder.Services, builder.Configuration);
 
 			var app = builder.Build();
 
