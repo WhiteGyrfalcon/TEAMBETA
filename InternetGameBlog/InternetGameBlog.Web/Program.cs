@@ -5,8 +5,11 @@ namespace InternetGameBlog.Web
 
 	using InternetGameBlog.Data;
 	using InternetGameBlog.Data.Models;
+    using System.Security.Principal;
+    using CloudinaryDotNet;
+    using InternetGameBlog.Web.Extensions;
 
-	public class Program
+    public class Program
 	{
 		public static void Main(string[] args)
 		{
@@ -27,6 +30,11 @@ namespace InternetGameBlog.Web
 				.AddEntityFrameworkStores<GameBlogDbContext>();
 
 			builder.Services.AddControllersWithViews();
+
+			builder.Services.ConfigureServices();
+
+
+            ConfigureCloudinaryService(builder.Services, builder.Configuration);
 
 			var app = builder.Build();
 
@@ -55,6 +63,20 @@ namespace InternetGameBlog.Web
 			app.MapRazorPages();
 
 			app.Run();
+		}
+		private static void ConfigureCloudinaryService(IServiceCollection services, IConfiguration configuration)
+		{
+
+			var cloudName = configuration.GetValue<string>("AccountSettings:CloudName");
+			var apiKey = configuration.GetValue<string>("AccountSettings:ApiKey");
+			var apiSecret = configuration.GetValue<string>("AccountSettings:ApiSecret");
+
+			if (new[] { cloudName, apiKey, apiSecret }.Any(string.IsNullOrWhiteSpace))
+			{
+				throw new ArgumentException("Please specify your Cloudinary account Information");
+			}
+
+			services.AddSingleton(new Cloudinary(new Account(cloudName, apiKey, apiSecret)));
 		}
 	}
 }
