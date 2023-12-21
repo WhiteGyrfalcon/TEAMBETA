@@ -19,7 +19,18 @@ namespace InternetGameBlog.Web.Controllers
             var games = await dbContext.Games.ToListAsync();
             return View(games);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> SortGamesByLikeCnt()
+        {
+            var games = await dbContext.Games.OrderByDescending(g => g.LikeCnt).ToListAsync();
+            return View(games);
+        }
+        [HttpGet]
+        public async Task<IActionResult> FilterGamesByCreator(string creatorCompany)
+        {
+            var games = await dbContext.Games.Where(g => g.CreatorCompany == creatorCompany).ToListAsync();
+            return View(games);
+        }
         [HttpGet]
         public async Task<IActionResult> FilterGamesByPlatform(int platformId)
         {
@@ -32,7 +43,28 @@ namespace InternetGameBlog.Web.Controllers
             var games = await dbContext.Games.Where(g => $"{g.Genre}" == genre).ToListAsync();
             return View(games);
         }
+        [HttpGet]
+        public async Task<IActionResult> SelectGame(string id)
+        {
+            var game = await dbContext.Games.FirstOrDefaultAsync(x => x.Id == id);
+            if (game != null)
+            {
+                EditGameViewModel viewModel = new EditGameViewModel()
+                {
+                    Id = game.Id,
+                    Name = game.Name,
+                    Genre = game.Genre,
+                    CreatedOn = game.CreatedOn,
+                    LikeCnt = game.LikeCnt,
+                    CreatorCompany = game.CreatorCompany,
+                    Images = game.Images,
+                    Platform = game.Platform
+                };
 
+                return await Task.Run(() => View("Select", viewModel));
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public async Task<IActionResult> Add()
         {
