@@ -10,7 +10,7 @@
 	{
 		public User()
 		{
-			
+			this.IsActive = true;
 			this.FavouriteGames = new HashSet<Game>();
 			this.Comments = new HashSet<Comment>();
 		}
@@ -27,6 +27,8 @@
 		public string LastName { get; set; } = null!;
 
 		public string ProfilePicUrl { get; set; } = null!;
+
+		public bool IsActive { get; set; }
 
 		public ICollection<Game> FavouriteGames { get; set; }
 		public ICollection<Comment> Comments { get; set; }
