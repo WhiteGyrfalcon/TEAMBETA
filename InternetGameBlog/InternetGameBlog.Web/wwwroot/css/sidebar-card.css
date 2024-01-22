@@ -1,0 +1,50 @@
+.site-sidebar > main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    margin-left: 2em;
+}
+
+
+.article-card {
+    display: flex;
+    align-items: center;
+    gap: 0.7em
+}
+
+.article-card .img-container img {
+    border-radius: 8px;
+    /* ReSharper disable once CssNotResolved */
+    aspect-ratio: 16/9;
+    width: 145px;
+}
+
+.article-card .card-content {
+    display: flex;
+    flex-flow: column;
+}
+
+.article-card .card-content main span {
+    color: #6aa41f;
+    text-decoration: underline;
+}
+
+.article-card .card-content main p {
+    margin: 0;
+    align-self: flex-start;
+    font-size: 14px;
+    color: rgba(25, 37, 10, 0.60);
+}
+
+.article-card .card-content header p {
+    margin: 0;
+    color: #19250a;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+

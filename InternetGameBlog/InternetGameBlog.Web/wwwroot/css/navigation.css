@@ -1,0 +1,48 @@
+.nav-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.main-nav {
+    margin-top: 3em;
+}
+
+.main-nav li,
+.main-nav a {
+    display: block;
+}
+
+.main-nav a {
+    /* padding: 0.5em 1em; */
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+.union,
+.union * {
+    box-sizing: border-box;
+}
+
+.union {
+    display: none;
+    width: 76px;
+    height: 74px;
+    top: -19px;
+    right: -17px;
+    z-index: -1;
+    position: absolute;
+    overflow: visible;
+}
+
+.home-icon .union {
+    display: block;
+}
+
+.counter-strike-icon .group {
+    top: 7px;
+    position: absolute;
+}

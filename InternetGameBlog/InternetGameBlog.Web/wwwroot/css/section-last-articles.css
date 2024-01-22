@@ -1,0 +1,114 @@
+h1, h2, h3, h3, h4, h5 {
+    margin: 0;
+}
+
+.section-latest-articles {
+    margin: 6em 0;
+}
+
+.section-latest-articles h4,
+.section-latest-articles h5 {
+    font-family: "TT Firs Neue-Bold", Helvetica, serif;
+}
+
+.section-latest-articles .heading-text {
+    color: #19250a;
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.top-article {
+    display: flex;
+    gap: 2em;
+}
+
+.top-article .content {
+    margin-top: 1em;
+}
+
+.top-article .content .info {
+    display: flex;
+    font-family: "Product Sans-Regular", Helvetica, serif;
+    gap: 22px;
+    margin-bottom: 1.2em;
+}
+
+.top-article .content .info:nth-child(1) {
+    color: #69a31f;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.top-article .content .info:nth-child(2) {
+    display: list-item;
+    color: rgba(25, 37, 10, 0.60);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.top-article .content p {
+    color: rgba(25, 37, 10, 0.80);
+    text-align: left;
+    font-family: 'ProductSans-Regular', sans-serif;
+    font-size: 18px;
+    width: 60ch;
+    line-height: 1.7;
+}
+
+.top-article .content .title {
+    color: #19250a;
+    text-align: left;
+    font-size: 32px;
+    text-transform: uppercase;
+    width: 20ch;
+    margin-bottom: 1em;
+}
+
+.articles {
+    display: flex;
+    gap: 1.5em;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.articles .card {
+    width: 409px;
+}
+
+.articles .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+}
+
+.articles .card .title {
+    color: #19250a;
+    font-family: 'TtFirsNeue-Bold', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.articles .card .info {
+    display: flex;
+    font-family: "Product Sans-Regular", Helvetica, serif;
+    gap: 22px;
+    margin-bottom: 1.2em;
+}
+
+
+.articles .card .info:nth-child(1) {
+    color: #69a31f;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.articles .card .info:nth-child(2) {
+    display: list-item;
+    color: rgba(25, 37, 10, 0.60);
+    font-size: 14px;
+    font-weight: 400;
+}

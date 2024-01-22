@@ -1,0 +1,32 @@
+@import url('https://fonts.cdnfonts.com/css/tt-firs-neue-trl');
+
+@font-face {
+    font-family: "TT Firs Neue-Bold";
+    src: url("https://anima-uploads.s3.amazonaws.com/projects/60e2b806a72a001b79f759d4/fonts/ttfirsneue-black.otf")
+    format("opentype");
+}
+
+@font-face {
+    font-family: "TT Firs Neue-DemiBold";
+    src: url("https://anima-uploads.s3.amazonaws.com/5c5aa93ceeae49000a9d280d/TTFirsNeue-DemiBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "TT Firs Neue-Medium";
+    src: url("https://anima-uploads.s3.amazonaws.com/5c5aa93ceeae49000a9d280d/TTFirsNeue-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Product Sans-Regular";
+    src: url("https://anima-uploads.s3.amazonaws.com/projects/63a03f64f2f3033b65ac384a/fonts/idealsans-book.otf")
+    format("opentype");
+}
+
+@font-face {
+    font-family: "Product Sans-Bold";
+    src: url("https://anima-uploads.s3.amazonaws.com/596db24aa0dc3c000d9a4ed2/product-sans-bold.ttf") format("truetype");
+}
+
+body{
+    font:  16px/1.5 "TT Firs Neue Trl", sans-serif;
+}

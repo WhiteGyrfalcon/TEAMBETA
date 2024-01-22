@@ -1,0 +1,61 @@
+.site-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 73em;
+    z-index: -1;
+    background: rgba(25, 37, 10, 0.03);
+    border-radius: 0px 0px 0px 32px;
+}
+
+.site-sidebar {
+    padding: 1em;
+    margin-bottom: 5em;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 23em;
+    height: 3em;
+    padding: 0 1em;
+}
+
+.search-bar input {
+    flex: 8;
+    border: 0;
+    margin-left: 0.6em;
+    outline: none;
+}
+
+.site-sidebar .title h5 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.site-sidebar .title {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.sti {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+}
+
+.sti > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+

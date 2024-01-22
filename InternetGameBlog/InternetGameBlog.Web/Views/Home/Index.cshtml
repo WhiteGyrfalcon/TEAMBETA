@@ -1,8 +1,351 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<main class="site-main">
+	<section class="section-hero">
+		<section class="carousel" aria-label="Gallery">
+			<ol class="carousel__viewport">
+				<li id="carousel__slide1"
+					tabindex="0"
+					class="carousel__slide">
+					<div class="carousel__snapper">
+						<img src="img/hero.png" alt="">
+						<a href="#carousel__slide4"
+						   class="carousel__prev">Go to last slide</a>
+						<a href="#carousel__slide2"
+						   class="carousel__next">Go to next slide</a>
+					</div>
+				</li>
+				<li id="carousel__slide2"
+					tabindex="0"
+					class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide1"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide3"
+					   class="carousel__next">Go to next slide</a>
+				</li>
+				<li id="carousel__slide3"
+					tabindex="0"
+					class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide2"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide4"
+					   class="carousel__next">Go to next slide</a>
+				</li>
+				<li id="carousel__slide4"
+					tabindex="0"
+					class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide3"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide1"
+					   class="carousel__next">Go to first slide</a>
+				</li>
+			</ol>
+			<aside class="carousel__navigation">
+				<ol class="carousel__navigation-list">
+					<li class="carousel__navigation-item">
+						<a href="#carousel__slide1"
+						   class="carousel__navigation-button">Go to slide 1</a>
+					</li>
+					<li class="carousel__navigation-item">
+						<a href="#carousel__slide2"
+						   class="carousel__navigation-button">Go to slide 2</a>
+					</li>
+					<li class="carousel__navigation-item">
+						<a href="#carousel__slide3"
+						   class="carousel__navigation-button">Go to slide 3</a>
+					</li>
+					<li class="carousel__navigation-item">
+						<a href="#carousel__slide4"
+						   class="carousel__navigation-button">Go to slide 4</a>
+					</li>
+				</ol>
+			</aside>
+		</section>
+		<section class="game-slider">
+		</section>
+	</section>
+	<section class="section-games">
+		<div class="rectangle">
+			<img class="hero" src="https://c.animaapp.com/rZ4X4ub1/img/v-agents-587x900-jett-1@2x.png" />
+			<img class="title" src="https://c.animaapp.com/rZ4X4ub1/img/mask-group@2x.png" />
+		</div>
+		<div class="rectangle">
+			<img class="hero" src="https://c.animaapp.com/rZ4X4ub1/img/league-of-legends-png-background-image-1@2x.png" />
+			<img class="title" src="https://c.animaapp.com/rZ4X4ub1/img/mask-group-1@2x.png" />
+		</div>
+		<div class="rectangle">
+			<img class="hero" src="https://c.animaapp.com/rZ4X4ub1/img/csgo-character-model-png-the-image-is-png-format-with-a-clean-tr@2x.png" />
+			<img class="title" src="https://c.animaapp.com/rZ4X4ub1/img/counter-strike-global-offensive-2-logo-svgrepo-com-1.svg" />
+		</div>
+		<div class="rectangle">
+			<img class="hero" src="https://c.animaapp.com/rZ4X4ub1/img/-citypng-1@2x.png" />
+			<img class="title" src="https://c.animaapp.com/rZ4X4ub1/img/fortnitelogo-1.svg" />
+		</div>
+	</section>
+	<section class="section-latest-articles">
+		<h4 class="heading-text">Latest Articles</h4>
+		<div class="top-article">
+			<img src="https://c.animaapp.com/TwGbnype/img/rectangle-152.png">
+			<div class="content">
+				<header>
+					<div class="info">
+						<div class="creator">Alex Gordon</div>
+						<div class="date">23 Dec, 2022</div>
+					</div>
+					<h5 class="title">Why Cypher joined protocol sight</h5>
+				</header>
+				<p>
+					Purus senectus vulputate elit pellentesque. Ut donec pretium, curabitur sed proin. Tristique
+					feugiat massa fames faucibus condimentum quam at. Sed tellus praesent habitant tortor. Sed aliquet dapibus
+					fermentum iaculis.
+				</p>
+			</div>
+		</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+		<div class="articles">
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+			<article class="card">
+				<img class="img" src="https://c.animaapp.com/TwGbnype/img/rectangle-153@2x.png">
+				<h5 class="title">THE BEST SOVA LINEUPS ON BIND</h5>
+				<div class="info">
+					<div class="creator">John Legend</div>
+					<div class="date">23 Dec, 2022</div>
+				</div>
+			</article>
+		</div>
+	</section>
+</main>
+
+<aside class="site-sidebar">
+	<header>
+		<section class="search-bar">
+			<svg class="huge-icon-interface-solid-search-02"
+				 width="23"
+				 height="23"
+				 viewBox="0 0 23 23"
+				 fill="none"
+				 xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd"
+					  clip-rule="evenodd"
+					  d="M2.6355 11.0209C2.6355 15.652 6.38978 19.4063 11.0209 19.4063C15.6521 19.4063 19.4063 15.652 19.4063 11.0209C19.4063 6.38972 15.6521 2.63544 11.0209 2.63544C6.38978 2.63544 2.6355 6.38972 2.6355 11.0209ZM11.0209 20.8438C5.59587 20.8438 1.198 16.4459 1.198 11.0209C1.198 5.59581 5.59587 1.19794 11.0209 1.19794C16.446 1.19794 20.8438 5.59581 20.8438 11.0209C20.8438 13.4747 19.9441 15.7184 18.4565 17.44L21.5916 20.5751C21.8723 20.8558 21.8723 21.3109 21.5916 21.5916C21.311 21.8723 20.8559 21.8723 20.5752 21.5916L17.44 18.4564C15.7184 19.944 13.4747 20.8438 11.0209 20.8438Z"
+					  fill="#19250A" />
+			</svg>
+			<input type="text" placeholder="Search...">
+			<svg class="huge-icon-device-outline-filter"
+				 width="23"
+				 height="23"
+				 viewBox="0 0 23 23"
+				 fill="none"
+				 xmlns="http://www.w3.org/2000/svg">
+				<path d="M2.875 5.75H9.58333"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<path d="M2.875 11.5H11.5"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<path d="M18.2083 11.5H20.1249"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<path d="M13.4167 5.75L20.1251 5.75"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<path d="M12.4583 17.25H19.1666"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<path d="M2.875 17.25H5.75"
+					  stroke="#19250A"
+					  stroke-opacity="0.6"
+					  stroke-width="1.5"
+					  stroke-linecap="round"
+					  stroke-linejoin="round" />
+				<circle cx="7.66667"
+						cy="17.25"
+						r="1.91667"
+						stroke="#19250A"
+						stroke-opacity="0.6"
+						stroke-width="1.5" />
+				<circle cx="16.2917"
+						cy="11.5"
+						r="1.91667"
+						stroke="#19250A"
+						stroke-opacity="0.6"
+						stroke-width="1.5" />
+				<ellipse cx="11.4999"
+						 cy="5.74998"
+						 rx="1.91667"
+						 ry="1.91667"
+						 stroke="#19250A"
+						 stroke-opacity="0.6"
+						 stroke-width="1.5" />
+			</svg>
+		</section>
+		<div class="title">
+			<div class="sti">
+				<svg class="huge-icon-business-outline-target"
+					 width="24"
+					 height="24"
+					 viewBox="0 0 24 24"
+					 fill="none"
+					 xmlns="http://www.w3.org/2000/svg">
+					<circle cx="12" cy="12" r="2" fill="#84D023" />
+					<path d="M12 12L22 2M18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12ZM22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+						  stroke="#84D023"
+						  stroke-width="1.5"
+						  stroke-linecap="round" />
+				</svg>
+
+			</div>
+			<h5>RECENT ARTICLES</h5>
+		</div>
+	</header>
+
+	<main>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<div class="article-card">
+			<div class="img-container">
+				<img src="img/valorant-card.jpg" alt="card-image">
+			</div>
+			<div class="card-content">
+				<header>
+					<p>Why Cypher Joined Protocol Sight</p>
+				</header>
+				<main>
+					<p><span>Alex Gordon</span> 23 Dec, 2022</p>
+				</main>
+			</div>
+		</div>
+		<!-- For more settings use the AutoHTML plugin tab ... -->
+		<div class="rectangle-182">
+			<style>
+				.rectangle-182 {
+					background: linear-gradient(109.58deg, rgba(132, 208, 35, 1.00) 0%, rgba(106, 169, 25, 1.00) 100%);
+					border-radius: 16px;
+					width: 370px;
+					height: 321px;
+					position: relative;
+				}
+			</style>
+		</div>
+	</main>
+
+</aside>

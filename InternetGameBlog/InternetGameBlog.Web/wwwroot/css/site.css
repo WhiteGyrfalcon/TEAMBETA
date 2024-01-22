@@ -1,18 +1,10 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
+﻿@import url(reset.css);
+@import url(typography.css);
+@import url(layout.css);
+@import url(navigation.css);
+@import url(hero.css);
+@import url(sidebar.css);
+@import url(sidebar-card.css);
+@import url(footer.css);
+@import url(section-games.css);
+@import url(section-last-articles.css);
