@@ -28,10 +28,10 @@
     flex-grow: 1;
 }
 
-.site-footer {
+/*.site-footer {
     flex-basis: 100%;
 }
-
+*/
 /* Navigation styles */
 
 .site-header::before {

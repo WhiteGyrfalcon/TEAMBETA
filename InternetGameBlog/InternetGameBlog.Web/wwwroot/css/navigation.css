@@ -22,6 +22,11 @@
     text-decoration: underline;
 }
 
+.main-nav li:last-child,
+.main-nav li:nth-last-child(2) {
+    transform: translateX(-9px);
+}
+
 .union,
 .union * {
     box-sizing: border-box;

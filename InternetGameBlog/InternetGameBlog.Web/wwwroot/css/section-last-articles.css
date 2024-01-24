@@ -34,13 +34,13 @@ h1, h2, h3, h3, h4, h5 {
     margin-bottom: 1.2em;
 }
 
-.top-article .content .info:nth-child(1) {
+.top-article .content .info :nth-child(1) {
     color: #69a31f;
     font-size: 14px;
     text-decoration: underline;
 }
 
-.top-article .content .info:nth-child(2) {
+.top-article .content .info :nth-child(2) {
     display: list-item;
     color: rgba(25, 37, 10, 0.60);
     font-size: 14px;
@@ -100,13 +100,13 @@ h1, h2, h3, h3, h4, h5 {
 }
 
 
-.articles .card .info:nth-child(1) {
+.articles .card .info :nth-child(1) {
     color: #69a31f;
     font-size: 14px;
     text-decoration: underline;
 }
 
-.articles .card .info:nth-child(2) {
+.articles .card .info :nth-child(2) {
     display: list-item;
     color: rgba(25, 37, 10, 0.60);
     font-size: 14px;
