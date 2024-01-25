@@ -11,6 +11,7 @@ namespace InternetGameBlog.Web.Extensions
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IGameService, GameService>();
             return services;
 
         }

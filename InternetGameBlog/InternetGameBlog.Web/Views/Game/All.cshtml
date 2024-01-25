@@ -1,0 +1,43 @@
+﻿@using InternetGameBlog.Web.ViewModels.Game
+@model List<GameViewModel>
+
+<div id="carouselExampleControls" style="margin-top: 50px" class="carousel">
+    <div class="carousel-inner">
+        @if(Model.Count > 0)
+        {
+            var first = Model.First();
+
+            <div class="carousel-item active" style="margin-left: 30px">
+                <partial name="_GamePartial" model="@first" />
+            </div>
+            @for (int i = 1; i < Model.Count; i++)
+            {
+                <div class="carousel-item" style="margin-left: 30px">
+                    <partial name="_GamePartial" model="Model[i]" />
+                </div>
+            }
+        }
+        else
+        {
+            <h1 class="text-dark" style="margin: auto">Няма фирми съвпадащи с вашето търсене</h1>
+        }
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/companies.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/companyCard.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/carousel.js" asp-append-version="true"></script>
+}
