@@ -13,11 +13,11 @@ namespace InternetGameBlog.Web.ViewModels.Account
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(FirstNameMinLength, MinimumLength = FirstNameMinLength)]
+        [StringLength(FirstNameMaxLength, MinimumLength = FirstNameMinLength)]
         public string FirstName { get; set; } = null!;
 
         [Required]
-        [StringLength(FirstNameMinLength, MinimumLength = FirstNameMinLength)]
+        [StringLength(FirstNameMaxLength, MinimumLength = FirstNameMinLength)]
         public string LastName { get; set; } = null!;
 
         [Required]
