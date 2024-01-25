@@ -6,15 +6,18 @@ using InternetGameBlog.Data.Models;
 using InternetGameBlog.Data.Models.Enum;
 using InternetGameBlog.Web.ViewModels;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using InternetGameBlog.Services.Contracts;
 
 namespace InternetGameBlog.Web.Controllers
 {
 	public class GameController : Controller
 	{
 		private readonly GameBlogDbContext dbContext;
-		public GameController(GameBlogDbContext _context)
+		private readonly IGameService gameService;
+		public GameController(GameBlogDbContext _context, IGameService gameService)
 		{
 			this.dbContext = _context;
+			this.gameService = gameService;
 		}
 		[HttpGet]
 		public async Task<IActionResult> Index()
@@ -185,6 +188,13 @@ namespace InternetGameBlog.Web.Controllers
 		private bool IsValidEnumValue<TEnum>(TEnum value)
 		{
 			return Enum.IsDefined(typeof(TEnum), value);
+		}
+
+		public async Task<IActionResult> AllGames()
+		{
+			var games = await gameService.GetAllGamesAsync();
+
+			return View("All", games);
 		}
 	}
 }
