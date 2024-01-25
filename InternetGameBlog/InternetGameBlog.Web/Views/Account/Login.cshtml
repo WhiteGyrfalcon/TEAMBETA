@@ -1,0 +1,44 @@
+﻿@using InternetGameBlog.Web.ViewModels.Account
+
+@model LoginViewModel;
+
+@{
+    ViewData["Title"] = "Влез";
+}
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <form class="requires-validation" id="registerForm" method="post">
+                        <h2 class="text-center text-white"><strong>@ViewData["Title"] в</strong> акаунт.</h2>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input asp-for="Password" class="form-control" placeholder="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 10px">
+                            <button class="btn btn-primary btn-block" type="submit">Влез</button>
+                        </div>
+                        <br>
+                        <a asp-controller="Account" asp-action="Register" class="already">Нямате акаунт? <b>Регистрирайте се тук.</b></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+}

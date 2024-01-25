@@ -26,7 +26,7 @@
 		[MaxLength(LastNameMaxLength)]
 		public string LastName { get; set; } = null!;
 
-		public string ProfilePicUrl { get; set; } = null!;
+		public string? ProfilePicUrl { get; set; }
 
 		public bool IsActive { get; set; }
 

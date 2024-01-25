@@ -59,8 +59,6 @@ namespace InternetGameBlog.Web.Controllers
 
             if (result.Succeeded)
             {
-                await userManager.AddToRoleAsync(user, "Student");
-
                 if (model.ProfilePicture != null)
                 {
                     user.ProfilePicUrl = await imageService.UploadImage(model.ProfilePicture, "projectImages", user);
