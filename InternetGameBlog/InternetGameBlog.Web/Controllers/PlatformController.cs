@@ -34,7 +34,7 @@ namespace InternetGameBlog.Web.Controllers
 
             await dbContext.Platforms.AddAsync(platform);
             await dbContext.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
         [HttpGet]
@@ -51,7 +51,7 @@ namespace InternetGameBlog.Web.Controllers
 
                 return await Task.Run(() => View("Edit", viewModel));
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -65,7 +65,7 @@ namespace InternetGameBlog.Web.Controllers
 
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
