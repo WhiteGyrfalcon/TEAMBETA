@@ -22,7 +22,7 @@
 
                         </div>
                         <div class="css-u74ql7 eu4oa1w0">
-                            <span class="css-j3kgaw e1wnkr790">IT</span><span>
+                            <span class="css-j3kgaw e1wnkr790"</span><span>
                                 <span class="css-vqoc99 e1wnkr790">•</span><span class="css-j3kgaw e1wnkr790">
                                     @Model.CreatedOn
                                 </span>
@@ -35,21 +35,10 @@
                         @string.Join(", ", Model.Platforms)
                     </span>
                     <span class="css-18p8mbl e1wnkr790">
-                        @Model.LikeCnt
+                        Likes: @Model.LikeCnt
                     </span>
                 </div>
                 <div class="css-11g2nnm e37uo190">
-
-                    @*  <a asp-action="MyProfile" asp-controller="Profile" asp-route-userId="@Model.Id" class="css-f7ljk3 e71d0lh0">
-                    Повече
-                    </a>
-                    @if(User.IsInRole("Teacher"))
-                    {
-
-                    <a asp-action="CreateView" asp-controller="Request" asp-route-companyUserId="@Model.Id" data-tn-link="true" class="css-1ag1fjx e71d0lh0">
-                    Изпрати молба
-                    </a>
-                    } *@
 
                 </div>
             </div>
